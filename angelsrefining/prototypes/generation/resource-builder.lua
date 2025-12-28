@@ -1019,8 +1019,16 @@ function angelsmods.functions.update_autoplace()
               else
                 input.acid_req = "sulfuric-acid"
               end
+              else
+              if data.raw.resource[input.name].mineable.required_fluid == nil then
+                data.raw.resource[input.name].minable.fluid_amount = nil
+              end
             end
-            data.raw.resource[input.name].minable.required_fluid = input.acid_req
+            if input.acid_req == nil then
+             data.raw.resource[input.name].minable.fluid_amount = nil
+            else
+             data.raw.resource[input.name].minable.required_fluid = input.acid_req
+            end
             -- log(serpent.block(input.acid_req))
             -- log(serpent.block(data.raw.resource[input.name].minable.required_fluid))
           end
