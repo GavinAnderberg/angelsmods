@@ -178,6 +178,15 @@ local function patch_resource_pair(name1, name2)
   local resource1_starting_index = autoplace_set.starting.patch_set_indexes[name1] or 0
   local resource2_starting_index = autoplace_set.starting.patch_set_indexes[name2] or 0
 
+  if not resource1_regular_index then
+   log(string.format("Missing index for '%s'", name1)) 
+   return
+  end
+  if not resource2_regular_index then
+   log(string.format("Missing index for '%s'", name2))
+   return
+  end
+  
   local new_expression_format =
     "paired_resource_autoplace_all_patches{ other_frequency = var('control:%s:frequency'), other_skip_offset = %i, other_starting_skip_offset = %i, "
 
