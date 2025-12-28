@@ -1019,7 +1019,6 @@ function angelsmods.functions.update_autoplace()
               else
                 input.acid_req = "sulfuric-acid"
               end
-              else
               if data.raw.resource[input.name].mineable.required_fluid == nil then
                 data.raw.resource[input.name].minable.fluid_amount = nil
               end
